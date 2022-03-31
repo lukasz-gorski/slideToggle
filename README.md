@@ -16,14 +16,21 @@ Install package by yarn
 yarn add @roghz/slidetoggle
 ```
 
-### Bundler
+### Usage Example
 
 ```javascript
-import { slideUp, slideDown, slideToggle } from '@roghz/slidetoggle';
+import { slideToggle } from '@roghz/slidetoggle';
+//import { slideUp, slideDown, slideToggle } from '@roghz/slidetoggle';
 
-const btn = document.querySelector('button.btn');
-btn.addEventListener('click', () => {
-  slideToggle('div.toggle-div', 500);
+const accordionsBlock = document.querySelectorAll('.accordions');
+accordionsBlock.forEach(function (accordionBlock, i) {
+    const question = accordionBlock.querySelectorAll('.accordions__item--heading');
+    question.forEach(el => {
+        el.addEventListener('click', (e) => {
+            el.classList.toggle('active');
+            slideToggle(el.nextElementSibling, 500);
+        });
+    });
 });
 ```
 

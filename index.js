@@ -26,7 +26,7 @@ let slideUp = (target, duration = 500) => {
 }
 
 let slideDown = (target, duration = 500) => {
-    target.style.removeProperty('display');
+    target.style.removeProperty(' ');
     let display = window.getComputedStyle(target).display;
     if (display === 'none')
         display = 'block';
