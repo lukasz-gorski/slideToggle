@@ -23,10 +23,10 @@ import { slideToggle } from '@roghz/slidetoggle';
 //import { slideUp, slideDown, slideToggle } from '@roghz/slidetoggle';
 
 const accordionsBlock = document.querySelectorAll('.accordions');
-accordionsBlock.forEach(function (accordionBlock, i) {
-    const question = accordionBlock.querySelectorAll('.accordions__item--heading');
+accordionsBlock.forEach(item => {
+    const question = item.querySelectorAll('.accordions__item--heading');
     question.forEach(el => {
-        el.addEventListener('click', (e) => {
+        el.addEventListener('click', () => {
             el.classList.toggle('active');
             slideToggle(el.nextElementSibling, 500);
         });
