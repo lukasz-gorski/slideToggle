@@ -1,5 +1,5 @@
 {
-  "name": "simple-slidetoggle",
+  "name": "@roghz/slidetoggle",
   "version": "1.0.0",
   "description": "Vanilla slideToggle",
   "main": "index.js",
