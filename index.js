@@ -2,9 +2,9 @@
 
 let slideUp = (target, duration = 500) => {
     target.style.transitionProperty = 'height, margin, padding';
-    target.style.transitionDuration = duration + 'ms';
+    target.style.transitionDuration = `${duration}ms`;
     target.style.boxSizing = 'border-box';
-    target.style.height = target.offsetHeight + 'px';
+    target.style.height = `${target.offsetHeight}px`;
     target.offsetHeight;
     target.style.overflow = 'hidden';
     target.style.height = 0;
@@ -23,13 +23,11 @@ let slideUp = (target, duration = 500) => {
         target.style.removeProperty('transition-duration');
         target.style.removeProperty('transition-property');
     }, duration);
-}
+};
 
-let slideDown = (target, duration = 500) => {
-    target.style.removeProperty(' ');
+let slideDown = (target, duration = 500, displayMode = 'block') => {
     let display = window.getComputedStyle(target).display;
-    if (display === 'none')
-        display = 'block';
+    if (display === 'none') display = displayMode;
     target.style.display = display;
     let height = target.offsetHeight;
     target.style.overflow = 'hidden';
@@ -41,26 +39,22 @@ let slideDown = (target, duration = 500) => {
     target.offsetHeight;
     target.style.boxSizing = 'border-box';
     target.style.transitionProperty = "height, margin, padding";
-    target.style.transitionDuration = duration + 'ms';
-    target.style.height = height + 'px';
-    target.style.removeProperty('padding-top');
-    target.style.removeProperty('padding-bottom');
-    target.style.removeProperty('margin-top');
-    target.style.removeProperty('margin-bottom');
+    target.style.transitionDuration = `${duration}ms`;
+    target.style.height = `${height}px`;
     window.setTimeout(() => {
         target.style.removeProperty('height');
         target.style.removeProperty('overflow');
         target.style.removeProperty('transition-duration');
         target.style.removeProperty('transition-property');
     }, duration);
-}
+};
 
-const slideToggle = (target, duration = 500) => {
+const slideToggle = (target, duration = 500, displayMode = 'block') => {
     if (window.getComputedStyle(target).display === 'none') {
-        return slideDown(target, duration);
+        return slideDown(target, duration, displayMode);
     } else {
         return slideUp(target, duration);
     }
-}
+};
 
-export {slideUp,slideDown, slideToggle}
+export { slideUp, slideDown, slideToggle };

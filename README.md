@@ -28,11 +28,15 @@ accordionsBlock.forEach(item => {
     question.forEach(el => {
         el.addEventListener('click', () => {
             el.classList.toggle('active');
-            slideToggle(el.nextElementSibling, 500);
+            slideToggle(el.nextElementSibling, 500, 'flex');
         });
     });
 });
+
+//slideToggle(el.nextElementSibling, 500) or slideToggle(el.nextElementSibling, 500, 'displayMode');
+
 ```
+
 
 # **LICENSE**
 
